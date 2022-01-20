@@ -42,11 +42,13 @@ app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
+const port = process.env.PORT || 5000;
+
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI);
-    app.listen(process.env.PORT || 3000, () => {
-      console.log(`App is listening on port`);
+    app.listen(port, () => {
+      console.log(`App is listening on port ${port}`);
     });
   } catch (error) {
     console.log(error);
