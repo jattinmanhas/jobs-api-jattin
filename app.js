@@ -42,8 +42,6 @@ app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-const host = "0.0.0.0";
-
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI);
